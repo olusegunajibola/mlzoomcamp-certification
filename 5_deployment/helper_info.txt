@@ -24,3 +24,5 @@ Using the pipenv shell, run waitress, then run predict-test.py and see if it int
     pipenv run waitress-serve --listen=0.0.0.0:9696 predict:app
 
 # DOCKER
+    - docker run -it --rm <<python image for docker i.e python:X.X.XX-XXX>>
+    - docker run -it --rm --entrypoint=bash <<python image for docker i.e python:X.X.XX-XXX>>
