@@ -24,5 +24,20 @@ Using the pipenv shell, run waitress, then run predict-test.py and see if it int
     pipenv run waitress-serve --listen=0.0.0.0:9696 predict:app
 
 # DOCKER
+    - docker build -t zoomcamp-test . # to build from docker file
+    - docker run -it --rm --entrypoint=bash zoomcamp-test # to run the image
+    - gunicorn --bind=0.0.0.0:9696 predict:app
+    # go ahead and expose the port 9696
+    - docker run -it --rm -p 9696:9696 zoomcamp-test # to run the image and launch gunicorn automatically
+
     - docker run -it --rm <<python image for docker i.e python:X.X.XX-XXX>>
     - docker run -it --rm --entrypoint=bash <<python image for docker i.e python:X.X.XX-XXX>>
+
+# DOCKER for feedback
+    - docker build -t predictordock .
+    - docker run -it --rm --entrypoint=bash predictordock
+    - docker run -it --rm -p 9685:9685 predictordock
+
+
+
+
