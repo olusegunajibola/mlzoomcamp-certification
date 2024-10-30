@@ -1,0 +1,26 @@
+When you run your app you will see a warning that it is not a WGSI server
+and not suitable for production environmnets.
+To fix this issue and run this as a production server
+there are plenty of ways available:
+
+    1. waitress-serve --listen=0.0.0.0:9696 predict:app # for windows
+       waitress-serve --host=0.0.0.0 --port=9696 predict:app
+    2. gunicorn --bind 0.0.0.0:9696 predict:app # for linux/mac
+
+# deployment in virtual envs
+pipenv install numpy scikit-learn==0.24.2 flask waitress
+pipenv install numpy scikit-learn flask waitress
+alternatives to pipenv are:
+    - virtual env i.e venv
+    - conda
+    - pipenv
+    - poetry
+To activate this project's virtualenv, run
+    - pipenv shell
+Alternatively, run a command inside the virtualenv with
+    - pipenv run
+
+Using the pipenv shell, run waitress, then run predict-test.py and see if it interacts with the model endpoint. OR
+    pipenv run waitress-serve --listen=0.0.0.0:9696 predict:app
+
+# DOCKER
